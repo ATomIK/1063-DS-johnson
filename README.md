@@ -1,1 +1,4 @@
-# 1063-DS-johnson
+- profile pictures
+- Thomas Johnson
+- tom@thomasj.me
+- http://thomasj.me
