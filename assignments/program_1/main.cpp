@@ -23,6 +23,87 @@ struct rgb{
     int b;
 };
 
+/**
+* @FunctionName: flipVert
+* @Description:
+*     Loops through rows of RGB values and reverses their row position.
+* @Params:
+*    rgb** image - 2D array holding rgb values
+*    int width - width of image
+*    int height - height of image
+* @Returns:
+*    void
+*/
+void flipVert(rgb** image,int width,int height){
+  for(int i;i<width;i++){
+    image[i] = image[height - 1 - i];
+  }
+}
+
+/**
+* @FunctionName: flipHorz
+* @Description:
+*     Loops through columns of RGB values and reverses their column position.
+* @Params:
+*    rgb** image - 2D array holding rgb values
+*    int width - width of image
+*    int height - height of image
+* @Returns:
+*    void
+*/
+void flipHorz(rgb** image,int width,int height){
+  for(int i=0;i<height;i++){
+        for(int j=0;j<width;j++){
+            image[i][j] = image[i][width-1-j];
+        }
+    }
+}
+
+/**
+* @FunctionName: grayScale
+* @Description:
+*     Loops through a 2D array and turns every RGB value into its grayscale equivalent.
+* @Params:
+*    rgb** image - 2D array holding rgb values
+*    int width - width of image
+*    int height - height of image
+* @Returns:
+*    void
+*/
+void grayScale(rgb** image,int width,int height){
+  for(int i;i<width;i++){
+    for(int c;c<height;c++){
+      image[i][c].r = (image[i][c].r + image[i][c].g + image[i][c].b) / 3;
+      image[i][c].g = (image[i][c].r + image[i][c].g + image[i][c].b) / 3;
+      image[i][c].b = (image[i][c].r + image[i][c].g + image[i][c].b) / 3;
+    }
+  }
+}
+
+/**
+* @FunctionName: changeColor
+* @Description:
+*     Loops through a 2D array and turns every RGB value into the new color.
+* @Params:
+*    rgb** image - 2D array holding rgb values
+*    int width - width of image
+*    int height - height of image
+*    rgb newColor - a struct holding the new color for the image.
+* @Returns:
+*    void
+*/
+void changeColor(rgb** image,int width, int height, rgb newColor){
+   // loop through image
+   // assign newColor to each location in array
+   for(int i;i<width;i++){
+    for(int c;c<height;c++){
+      image[i][c].r = (image[i][c].r + image[i][c].g + image[i][c].b) / 1;
+      image[i][c].g = (image[i][c].r + image[i][c].g + image[i][c].b) / 1;
+      image[i][c].b = (image[i][c].r + image[i][c].g + image[i][c].b) / 1;
+    }
+  }
+}
+
 int main(){
     ifstream ifile;          //Input / output files
     ofstream ofile;
@@ -55,67 +136,7 @@ int main(){
 
     //We could make any changes we want to the color image here
 
-    /**
-    * @FunctionName: flipVert
-    * @Description:
-    *     Loops through rows of RGB values and reverses their row position.
-    * @Params:
-    *    rgb** image - 2D array holding rgb values
-    *    int width - width of image
-    *    int height - height of image
-    * @Returns:
-    *    void
-    */
-    void flipVert(rgb** image,int width,int height){
-
-    }
-
-    /**
-    * @FunctionName: flipHorz
-    * @Description:
-    *     Loops through columns of RGB values and reverses their column position.
-    * @Params:
-    *    rgb** image - 2D array holding rgb values
-    *    int width - width of image
-    *    int height - height of image
-    * @Returns:
-    *    void
-    */
-    void flipHorz(rgb** image,int width,int height){
-
-    }
-
-    /**
-    * @FunctionName: grayScale
-    * @Description:
-    *     Loops through a 2D array and turns every RGB value into its grayscale equivalent.
-    * @Params:
-    *    rgb** image - 2D array holding rgb values
-    *    int width - width of image
-    *    int height - height of image
-    * @Returns:
-    *    void
-    */
-    void grayScale(rgb** image,int width,int height){
-
-    }
-
-    /**
-    * @FunctionName: changeColor
-    * @Description:
-    *     Loops through a 2D array and turns every RGB value into the new color.
-    * @Params:
-    *    rgb** image - 2D array holding rgb values
-    *    int width - width of image
-    *    int height - height of image
-    *    rgb newColor - a struct holding the new color for the image.
-    * @Returns:
-    *    void
-    */
-    void changeColor(rgb** image,int width, int height, rgb newColor){
-       // loop through image
-       // assign newColor to each location in array
-    }
+    grayScale(imgArray, width, height);
 
     //Write out our color data to a new file
     ofile<<width<<" "<<height<<endl;
