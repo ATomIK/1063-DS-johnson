@@ -35,7 +35,7 @@ struct rgb{
 *    void
 */
 void flipVert(rgb** image,int width,int height){
-  for(int i;i<width;i++){
+  for(int i = 0;i<width;i++){
     image[i] = image[height - 1 - i];
   }
 }
@@ -71,11 +71,13 @@ void flipHorz(rgb** image,int width,int height){
 *    void
 */
 void grayScale(rgb** image,int width,int height){
-  for(int i;i<width;i++){
-    for(int c;c<height;c++){
-      image[i][c].r = (image[i][c].r + image[i][c].g + image[i][c].b) / 3;
-      image[i][c].g = (image[i][c].r + image[i][c].g + image[i][c].b) / 3;
-      image[i][c].b = (image[i][c].r + image[i][c].g + image[i][c].b) / 3;
+  int avg;
+  for(int i=0;i<height;i++){
+    for(int c=0;c<width;c++){
+	  avg = (imgArray[r][c].r + imgArray[r][c].g + imgArray[r][c].b) / 3;
+	  imgArray[r][c].r = avg;
+	  imgArray[r][c].g = avg;
+	  imgArray[r][c].b = avg;
     }
   }
 }
@@ -95,8 +97,8 @@ void grayScale(rgb** image,int width,int height){
 void changeColor(rgb** image,int width, int height, rgb newColor){
    // loop through image
    // assign newColor to each location in array
-   for(int i;i<width;i++){
-    for(int c;c<height;c++){
+   for(int i=0;i<width;i++){
+    for(int c=0;c<height;c++){
       image[i][c].r = (image[i][c].r + image[i][c].g + image[i][c].b) / 1;
       image[i][c].g = (image[i][c].r + image[i][c].g + image[i][c].b) / 1;
       image[i][c].b = (image[i][c].r + image[i][c].g + image[i][c].b) / 1;
