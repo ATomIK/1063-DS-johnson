@@ -1,4 +1,3 @@
-```c++
 /**
 * @ProgramName: Program-2
 * @Author: Thomas Johnson
@@ -163,4 +162,3 @@ int main() {
 	return 0;
 
 }
-```
