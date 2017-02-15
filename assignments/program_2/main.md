@@ -1,9 +1,9 @@
 ```c++
 /**
-* @ProgramName: Program-1
+* @ProgramName: Program-2
 * @Author: Thomas Johnson
 * @Description:
-*     This program reads in images stored as rgb values in a space delimited file format.
+*     This program is a conversion of program_1's functions into a class.
 * @Course: 1063 Data Structures
 * @Semester: Spring 2017
 * @Date: 02 06 2017
