@@ -45,28 +45,48 @@ bool DBList::InsertInOrder(int Data) {
 	}
 	else {
 		Node* Temp = _CreateNode(Data);
-		Node* Exists = DBList::Find(Data);
+		// traverse through to insert in order
 
 	}
 	return true;
 }
 
 bool DBList::Delete(int x) {
-	return true;
+	if(Head == Tail && Head->Data==x){
+		delete Head;
+		Head = NULL;
+		Tail = NULL;
+		return true;
+	} else if(Head->Data == x){
+		Head = Head->Next;
+		delete Head->Prev;
+		Head->Prev = NULL;
+		return true;
+	} else if($Tail->Data == x){
+		Tail = Tail->Prev;
+		delete Tail->Next;
+		Tail->Next = NULL;
+		return true;
+	} else {
+		Node* Location = DBList::Find(x);
+		if(!Location)
+			return false;
+		Location->Prev->Next = Location->Next;
+		Location->Next->Prev = Location->Prev;
+		delete Location;
+	}
 }
 
 Node* DBList::Find(int x) {
 	//recurse through our current list
 	Node* CurPtr = Head;
-	if (Head) {
-		while (CurPtr->Next != NULL) {
-			if (CurPtr->Data == x)
-				return CurPtr;
-			else
-				return false;
+	while (CurPtr) {
+		if (CurPtr->Data == x)
+			return CurPtr;
+		else
+			return false;
 
-			CurPtr = CurPtr->Next;
-		}
+		CurPtr = CurPtr->Next;
 	}
 }
 
