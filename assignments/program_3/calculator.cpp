@@ -45,7 +45,7 @@ private:
 public:
 	Calculator(string in) {
 		// infix
-		infix = in+")";
+		infix = in + ")";
 		size = infix.length();
 
 		// queue
@@ -113,10 +113,11 @@ public:
 				(!i ? f : s) = val;
 			}
 			return f >= s;
-		} else
+		}
+		else
 			return false;
 	}
-	
+
 	/**
 	* @FunctionName: to_postfix
 	* @Description:
@@ -144,7 +145,7 @@ public:
 				}
 				// if operator
 				if (is_operator(infix[i])) {
-					while(higher(S[top], infix[i]) && S[top]!='(') {
+					while (higher(S[top], infix[i]) && S[top] != '(') {
 						Q[rear] = S[top--];
 						rear = (rear + 1) % size;
 						num++;
