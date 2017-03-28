@@ -15,11 +15,14 @@ class Heap {
 		int Left(int);
 		int Right(int);
 		void Swap(int, int);
+		
+		int PickChild(int);
 	public:
 		Heap(int);
 		void Insert(int);
 		int Remove();
 		void BubbleUp(int);
+		void BubbleDown(int);
 		void PrintHeap();
 };
 
@@ -39,7 +42,7 @@ void Heap::Insert(int x){
 	CurrSize++;
 }
 
-void Heap::BubbleUp(){
+void Heap::BubbleUp(int i){
 	int p = Parent(i);
 	while(H[i] < H[p]){
 		Swap(i,p);
@@ -48,7 +51,27 @@ void Heap::BubbleUp(){
 	}
 }
 
-void Heap::Swap(int p, int i){ // aren't these fucking parameters backwards
+// reutrns index to swap with or 01 for no swap
+int Heap::PickChild(int i){
+  
+}
+
+void Heap::BubbleDown(int i){
+  bool loop = 1;
+  int left_child = 0,right_child = 0;
+  while(loop){
+    left_child = H[Left(i)];
+    right_child = H[Right(i)];
+    if(left > H[i])
+      
+    else if ()
+      
+    else
+      
+  }
+}
+
+void Heap::Swap(int p, int i){
 	int temp = H[p];
 	H[p] = H[i];
 	H[i] = temp;
@@ -67,7 +90,10 @@ int Heap::Right(int i){
 }
 
 int Heap::Remove(){
-
+  int temp = H[1];
+  H[1] = H[--Next];
+  BubbleDown(1);
+  return H[1];
 }
 
 void Heap::PrintHeap(){
@@ -92,6 +118,5 @@ int main(){
 	myHeap.PrintHeap();
 	return 0;
 }
-
 
 ```
