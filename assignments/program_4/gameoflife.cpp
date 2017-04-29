@@ -262,7 +262,7 @@ int main() {
 	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursorInfo);
 
 	//GameOfLife G(29, 60);
-	GameOfLife G("data2.txt");
+	GameOfLife G("gen_one.txt");
 	
 	//G.AddGlider();
 
