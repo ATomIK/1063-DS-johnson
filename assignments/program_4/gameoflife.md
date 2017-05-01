@@ -1,4 +1,4 @@
-```
+```c++
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -167,48 +167,6 @@ public:
 		SetCell(4, 35, 1);
 	}
 
-	void AddArmy() {
-		SetCell(1, 1, 1);
-		SetCell(1, 4, 1);
-		SetCell(2, 5, 1);
-		SetCell(3, 1, 1);
-		SetCell(3, 5, 1);
-		SetCell(4, 2, 1);
-		SetCell(4, 3, 1);
-		SetCell(4, 4, 1);
-		SetCell(4, 5, 1);
-
-		SetCell(8, 1, 1);
-		SetCell(8, 4, 1);
-		SetCell(9, 5, 1);
-		SetCell(10, 1, 1);
-		SetCell(10, 5, 1);
-		SetCell(11, 2, 1);
-		SetCell(11, 3, 1);
-		SetCell(11, 4, 1);
-		SetCell(11, 5, 1);
-
-		SetCell(15, 1, 1);
-		SetCell(15, 4, 1);
-		SetCell(16, 5, 1);
-		SetCell(17, 1, 1);
-		SetCell(17, 5, 1);
-		SetCell(18, 2, 1);
-		SetCell(18, 3, 1);
-		SetCell(18, 4, 1);
-		SetCell(18, 5, 1);
-
-		SetCell(22, 1, 1);
-		SetCell(22, 4, 1);
-		SetCell(23, 5, 1);
-		SetCell(24, 1, 1);
-		SetCell(24, 5, 1);
-		SetCell(25, 2, 1);
-		SetCell(25, 3, 1);
-		SetCell(25, 4, 1);
-		SetCell(25, 5, 1);
-	}
-
 	void AddGlider() {
 		SetCell(7, 7, 1);
 		SetCell(7, 8, 1);
@@ -241,12 +199,9 @@ public:
 			PrintBoard();
 			//Pause(480);
 			Pause(48);
-
 			if (!change)
 				break;
-
 			change = false;
-
 			system("cls");
 			g++;
 		}
@@ -255,26 +210,18 @@ public:
 };
 
 int main() {
-
 	// hide cursor while printing
 	CONSOLE_CURSOR_INFO cursorInfo;
 	GetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursorInfo);
 	cursorInfo.bVisible = false;
 	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursorInfo);
 
-	//GameOfLife G(29, 60);
 	GameOfLife G("gen_one.txt");
-	
 	//G.AddGlider();
-
 	G.AddGliderGun();
-
-	//G.AddArmy();
 
 	G.Run();
 	//G.PrintBoard();
-
 	return 0;
-
 }
 ```
