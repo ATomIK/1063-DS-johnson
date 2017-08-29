@@ -1,4 +1,4 @@
-[ ![profile picture](https://thomasj.me/img/profilepic6.jpg) ](http://thomasj.me)
+[ ![profile picture](https://images.weserv.nl/?url=thomasj.me/assets/images/outline.png&q=95) ](http://thomasj.me)
 
 - Thomas Johnson
 - tom@thomasj.me
